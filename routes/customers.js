@@ -92,7 +92,7 @@ router.post('/add', ensureAuthenticated, (req, res) => {
                                     // create reusable transporter object using the default SMTP transport
                                     let transporter = nodemailer.createTransport({
                                         host: keys.smtpHost,
-                                        port: 587,
+                                        port: keys.smtpPort,
                                         secure: false, // true for 465, false for other ports
                                         auth: {
                                             user: keys.smtpUser, // generated ethereal user
@@ -106,7 +106,7 @@ router.post('/add', ensureAuthenticated, (req, res) => {
 
                                     // setup email data with unicode symbols
                                     let mailOptions = {
-                                        from: '"BSP" <kudcsd171f002@student.nibm.lk>', // sender address
+                                        from: `"BSP" <${keys.smtpUser}>`, // sender address
                                         to: `${req.body.email}`, // list of receivers
                                         subject: 'BSP BANKING', // Subject line
                                         text: 'Welcome to BSP', // plain text body
