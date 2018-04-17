@@ -106,7 +106,7 @@ router.post('/add', ensureAuthenticated, (req, res) => {
 
                                     // setup email data with unicode symbols
                                     let mailOptions = {
-                                        from: `"BSP" <${keys.smtpUser}>`, // sender address
+                                        from: '"BSP" <kudcsd171f002@student.nibm.lk>', // sender address
                                         to: `${req.body.email}`, // list of receivers
                                         subject: 'BSP BANKING', // Subject line
                                         text: 'Welcome to BSP', // plain text body
