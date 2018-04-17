@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>BSP-EMP</title>
+</head>
+
+<body class="grey lighten-4">
+    {{> _header}}
+    <main>
+        {{> _msg}}
+        {{> _errors}}
+        {{{body}}}
+    </main>
+    {{> _footer}}
+    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="/js/chart.js"></script>
+    <script>
+        //Hide Sections
+        $('.section').hide();
+
+        setTimeout(function () {
+            $(document).ready(function () {
+                //Show sections
+                $('.section').fadeIn();
+
+                //Hide Preloader
+                $('.loader').fadeOut();
+
+                //Init Side Nav
+                $('.button-collapse').sideNav();
+
+                //Init Modal
+                $('.modal').modal();
+
+                //Init Select
+                $('select').material_select();
+
+                //Init Drop Down                
+                $('.dropdown-trigger').dropdown();        
+
+                //Counter
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).text()
+                    }, {
+                            duration: 1000,
+                            easing: 'swing',
+                            step: function (now) {
+                                $(this).text(Math.ceil(now));
+                            }
+                        });
+                });
+
+                //Approvals - Approve or Deny
+                $('.approve').click(function (e) {
+                    Materialize.toast('Approved', 3000);
+                    e.preventDefault();
+                });
+                $('.deny').click(function (e) {
+                    Materialize.toast('Denied', 3000);
+                    e.preventDefault();
+                });                
+
+                //Quick Todos
+                /*$('#todo-form').submit(function (e) {
+                    const output = `<li class="collection-item">
+                                        <div>${$('#todo').val()} <a href="#!" class="secondary-content delete"><i class="material-icons">close</i></a></div>
+                                    </li>`;
+
+                    $('.todos').append(output);
+                    Materialize.toast('Todo Added', 3000);
+                    e.preventDefault();
+                });*/
+
+                //Delete Todos
+                /*$('.todos').on('click', '.delete', function (e) {
+                    $(this).parent().parent().remove();
+                    Materialize.toast('Todo Removed', 3000);
+                    e.preventDefault();
+                });*/
+
+                //WYSIWYG Editor
+                CKEDITOR.replace('body');
+            });
+        }, 1000)
+
+
+    </script>
+</body>
+
+</html>

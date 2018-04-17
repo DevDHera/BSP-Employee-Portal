@@ -1,0 +1,29 @@
+<h1>Approvals</h4>
+    {{#if approvals}}
+    <div class="container">
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each approvals}}
+                <tr>
+                    <td><b>{{user.firstName}} {{user.lastName}}</b></td>
+                    <td>{{title}}</td>
+                    <td>
+                        <span class="approval-category">{{category}}</span>
+                    </td>
+                    <td>{{{details}}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <p>You have no approvals yet...</p>
+        {{/if}}
+    </div>

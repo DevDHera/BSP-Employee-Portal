@@ -1,0 +1,46 @@
+<section class="section section-register">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m8 offset-m2 l6 offset-13">
+                <div class="card-panel center">
+                    <h2>Customer Registration</h2>
+                    <form action="/customers/add" method="POST">
+                        <div class="input-field">
+                            <input type="text" name="firstName" value="{{firstName}}" required>
+                            <label for="firstName">First Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="lastName" value="{{lastName}}" required>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                        <!--<div class="row">
+                            <p>
+                                <input type="radio" name="gender" id="male" class="with-gap">
+                                <label for="male">Male</label>
+                                <input type="radio" name="gender" id="female" class="with-gap">
+                                <label for="female">Female</label>
+                            </p>
+                        </div>-->
+                        <div class="input-field">
+                            <input type="text" name="accountId" value="{{accountid}}" required>
+                            <label for="accountId">Account ID</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="nic" value="{{nic}}" required>
+                            <label for="nic">NIC</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" name="email" value="{{email}}" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="contact" value="{{contact}}" required>
+                            <label for="contact">Contact Number</label>
+                        </div>                                                
+                        <input type="submit" class="btn btn-large btn-extended blue lighten-1 black-text" value="Add Customer">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

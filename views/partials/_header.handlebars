@@ -1,0 +1,119 @@
+<!-- Dropdown Structure -->
+<ul id='customer' class='dropdown-content'>
+    <li>
+        <a href="/customers/add">Add Customer</a>
+    </li>
+    <li>
+        <a href="/customers/search">Search Customer</a>
+    </li>
+</ul>
+
+<!-- Dropdown Structure -->
+<ul id='employees' class='dropdown-content'>
+    <li>
+        <a href="/users/register">Add Employee</a>
+    </li>
+    <li>
+        <a href="/users/userlog">Log</a>
+    </li>
+</ul>
+
+<!-- Dropdown Structure -->
+<ul id='transactions' class='dropdown-content'>
+    <li>
+        <a href="/transactions/add">Add Transactions</a>
+    </li>
+    <li>
+        <a href="/transactions/past">View Transactions</a>
+    </li>
+</ul>
+
+
+<nav class="blue darken-2">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">BSP</a>
+            {{#if user}}
+            <a href="#" data-activates="side-nav" class="button-collapse show-on-large right">
+                <i class="material-icons">menu</i>
+            </a>
+            {{/if}}
+            <ul class="right hide-on-med-and-down">
+                {{#if user}}
+                <li>
+                    <a href="/">Dashboard</a>
+                </li>
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-activates="transactions">Transactions
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+                <!-- Dropdown Trigger -->
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-activates="customer">Customers
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/approvals">Approvals</a>
+                </li>
+                <!--<li>
+                    <a class="dropdown-trigger" href="#!" data-activates="employees">Employees
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>-->
+                {{{editNavEmployee user.role}}}
+                {{else}}
+                <li>
+                    <a href="/users/login">Login</a>
+                </li>
+                {{/if}}
+            </ul>
+            <!--SideNav-->
+            <ul id="side-nav" class="side-nav">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="/img/ocean.jpg">
+                        </div>
+                        <a href="#">
+                            <img src="/img/person1.jpg" class="circle">
+                        </a>
+                        <a href="#">
+                            <span class="name white-text">{{user.firstName}} {{user.lastName}}</span>
+                        </a>
+                        <a href="#">
+                            <span class="email white-text">{{user.email}}</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="material-icons">dashboard</i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="/transactions/add">Transactions</a>
+                </li>
+                <li>
+                    <a href="/customers/add">Customers</a>
+                </li>
+                <li>
+                    <a href="/approvals">Approvals</a>
+                </li>
+                {{{editSideEmployee user.role}}}
+                <!--<li>
+                    <a href="/users/register">Employees</a>
+                </li>-->
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li>
+                    <a href="" class="subheader">Account Controls</a>
+                </li>
+                <li>
+                    <a href="/users/logout" class="waves-effect">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

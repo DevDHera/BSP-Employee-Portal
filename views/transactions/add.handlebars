@@ -1,0 +1,34 @@
+<section class="section section-register">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m8 offset-m2 l6 offset-13">
+                <div class="card-panel center">
+                    <h2>BSP Transaction Portal</h2>
+                    <form action="/transactions/add" method="POST">
+                        <div class="input-field">
+                            <input type="text" name="accountid" value="{{accountid}}" required>
+                            <label for="accountid">Account ID</label>
+                        </div>
+                        <div class="input-field">
+                            <select name="tranMethod">
+                                <option value="deposit" selected>Deposit</option>
+                                <option value="withdraw">Withdrawal</option>
+                                <option value="transfer">Transfer</option>                                
+                            </select>
+                            <label for="tranMethod">Transaction Mode</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="amount" value="{{amount}}" required>
+                            <label for="amount">Amount</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="transaccount" value="{{transaccount}}">
+                            <label for="transaccount">Transfer Account</label>
+                        </div>
+                        <input type="submit" class="btn btn-large btn-extended blue lighten-1 black-text" value="Looks Right :)">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

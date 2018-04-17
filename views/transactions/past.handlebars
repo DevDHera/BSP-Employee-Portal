@@ -1,0 +1,38 @@
+<section class="section section-register">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m8 l12">
+                <div class="card-panel center">
+                    <h2>Past Transactions</h2>
+                    {{#if transactions}}
+                    <table class="striped">
+                        <thead>
+                            <tr>
+                                <th>Handled By</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each transactions}}
+                            <tr>
+                                <td>
+                                    <b>{{user.firstName}}</b>
+                                </td>
+                                <td><span class="approval-category">{{type}}</span></td>
+                                <td>
+                                    {{amount}}
+                                </td>
+                                <td>{{{formatDate date 'MMMM Do YYYY'}}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    {{else}}
+                    <p>No transactions...</p>
+                    {{/if}}                
+            </div>
+        </div>
+    </div>
+</section>

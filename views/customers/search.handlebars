@@ -1,0 +1,59 @@
+<section class="section section-register">
+    
+        <div class="row">
+            <div class="col s12 m8 l12 ">
+                <div class="card-panel center">
+                    <h2>BSP Customer Pool</h2>
+                    <form action="/customers/search" method="POST">
+                        <div class="input-field">
+                            <select name="selectmethod">
+                                <option value="byname" selected>First Name</option>
+                                <option value="byaccount">Account ID</option>
+                                <option value="bynic">NIC</option>
+                            </select>
+                            <label for="selectmethod">Search Method</label>
+                            <div class="input-field">
+                                <input type="text" name="serachKey" required>
+                                <label for="firstName">Keyword</label>
+                            </div>
+                            <input type="submit" class="btn btn-large btn-extended blue lighten-1 black-text" value="Search">
+                    </form>
+                    {{#if customer}}
+                    <table class="striped">
+                        <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Account ID</th>
+                                <th>NIC</th>
+                                <th>Account Open Day</th>
+                                <th>Deposits</th>
+                                <th>Withdrawls</th>
+                                <th>Transfers</th>
+                                <th>Non-Owner Deposits</th>
+                                <th>Current Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>                            
+                            <tr>
+                                <td>
+                                    <b>{{customer.firstName}} {{customer.lastName}}</b>
+                                </td>
+                                <td>{{customer.accountid}}</td>
+                                <td>
+                                    {{customer.nic}}
+                                </td>
+                                <td>{{formatDate customer.date 'MMMM Do YYYY'}}</td>
+                                <td>{{deposit}}</td>
+                                <td>{{withdraw}}</td>
+                                <td>{{transfer}}</td>
+                                <td>{{trdepo}}</td>
+                                <td>{{balance}}</td>
+                            </tr>                            
+                        </tbody>
+                    </table>                    
+                    {{/if}}                    
+                </div>
+            </div>
+        </div>
+    
+</section>
