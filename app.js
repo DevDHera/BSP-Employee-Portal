@@ -7,6 +7,8 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 //const User = mongoose.model('users');
 const { ensureAuthenticated } = require('./helpers/auth');
 
@@ -93,6 +95,9 @@ app.use(passport.session());
 
 //Connect-Flash Middleware
 app.use(flash());
+
+//CORS Middleware
+app.use(cors());
 
 //Global Variables
 app.use(function(req, res, next){
